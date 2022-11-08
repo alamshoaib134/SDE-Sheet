@@ -1,0 +1,17 @@
+def maximumValue(items, n, w):
+
+	# Write your code here.
+	# ITEMS contains [weight, value] pairs.
+    profit = []
+    weights = [x[0] for x in items]
+    values = [x[1] for x in items]
+    for i in range(n):
+        profit.append((values[i]/weights[i],weights[i]))
+    profit.sort(reverse=True)
+    ans = 0
+    i=0
+    while w>0 and i<n:
+            ans=ans+profit[i][0]*min(w,profit[i][1])
+            w = w - profit[i][1]
+            i+=1
+    return(round(ans,2))

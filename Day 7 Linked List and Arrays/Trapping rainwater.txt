@@ -1,0 +1,26 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        lef_max = []
+        maxi = height[0]
+        res = 0
+        lef_max.append(maxi)
+        for ele in height[1:]:
+            if maxi < ele:
+                maxi = ele
+            lef_max.append(maxi)
+        
+        rig_max = []
+        maxi = height[len(height)-1]
+        rig_max .append(maxi)
+        
+        for ele in reversed(height[:-1]):
+            if maxi < ele:
+                maxi = ele
+            rig_max.append(maxi)
+        rig_max.reverse()   
+        
+        for i in range(len(height)):
+            res += min(lef_max[i], rig_max[i]) -height[i]
+            
+        return res
+        

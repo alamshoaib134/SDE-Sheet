@@ -1,0 +1,19 @@
+s = "dajs________-654lkda"
+ans = 0
+flag = 0
+sign = 0
+for i in range(len(s)):
+    if ord(s[i])>=47 and ord(s[i])<=57:
+        if i !=0:
+            # if s[i-1]=='+':
+            #     sign = 1
+            if s[i-1]=='-':
+                sign =1
+        ans = ans *10 + int(s[i])
+        flag =1
+    elif flag==1:
+        break
+if sign ==1:
+    print(-1*ans)
+else:
+    print(ans)

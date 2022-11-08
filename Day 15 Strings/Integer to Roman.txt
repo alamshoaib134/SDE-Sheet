@@ -1,0 +1,15 @@
+class Solution:
+    def intToRoman(self, x: int) -> str:
+        thousand = ["","M","MM","MMM"]
+        hundred = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"]
+        tens = ["","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"]
+        ones = ["","I","II","III","IV","V","VI","VII","VIII","IX"]
+
+        res = ""
+        t = thousand[x//1000]
+        h = hundred[(x%1000)//100]
+        te = tens[(x%100)//10]
+        o = ones[(x%10)]
+
+        res  = t+h+te+o
+        return(res)

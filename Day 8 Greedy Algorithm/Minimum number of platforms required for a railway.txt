@@ -1,0 +1,17 @@
+def calculateMinPatforms(at, dt, n):
+    # Write your cod
+        at.sort()
+        dt.sort()
+
+        res,count = 1,1
+        s,e = 1,0 
+
+        while s<n and e<n:
+            if at[s]<=dt[e]:
+                s+=1
+                count+=1
+            else:
+                e+=1
+                count-=1
+            res = max(res,count)
+        return res

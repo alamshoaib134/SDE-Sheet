@@ -1,0 +1,22 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s) == 1:
+            return False
+        stk = []        
+        for c in s:
+            if c=="(" or c=="[" or c=="{":
+                stk.append(c)
+            elif (stk):
+                if (stk[-1]=="(" and c==")") or (stk[-1]=="[" and c=="]") or (stk[-1]=="{" and c=="}") :
+                    stk.pop()
+                else:
+                    return False
+            else:
+                return False
+        if len(stk)==0:
+            return True
+        return False
+                    
+                    
+                
+        

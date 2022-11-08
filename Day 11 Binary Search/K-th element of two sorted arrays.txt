@@ -1,0 +1,18 @@
+def ninjaAndLadoos(a1, a2, m, n, k):
+    # Write your code here.
+    res = []
+    i1,i2 = 0,0
+    while i1 < len(a1) and i2<len(a2):
+        if a1[i1] <= a2[i2]:
+            res.append(a1[i1])
+            i1+=1
+        else:
+            res.append(a2[i2])
+            i2+=1
+
+    if i2 == len(a2):
+        res = res+a1[i1:]
+    else:
+        res = res+a2[i2:]
+
+    return(res[k-1])

@@ -1,0 +1,17 @@
+num =[1,2,3,4,3]
+# num.reverse()
+ans = [0 for i in range(len(num))]
+stk = []
+n = len(num)
+for i in range(2*(n-1),-1,-1):
+    if len(stk)!= 0:
+        while len(stk)>0 and stk[-1]<=num[i%n]:
+            stk.pop()
+    if i<n:
+        if len(stk)>0:
+            ans[i] = stk[-1]
+        else:
+            ans[i] = -1
+    stk.append(num[i%n])
+print(ans)
+    
